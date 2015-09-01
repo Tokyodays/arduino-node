@@ -27,12 +27,13 @@ router.use(express.static(path.resolve(__dirname, 'client')));
 
 var messages = [];
 var sockets = [];
-var led = new five.Led(13);
 
 router.post('/', function (req, res) {
   var response = req.body;
   console.log('Response was ', response.rate);
-  led.blink();
+  
+    var led = new five.Led(13);
+    led.blink();
   res.send('successful!');
 });
 
