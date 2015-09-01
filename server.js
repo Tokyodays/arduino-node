@@ -22,18 +22,20 @@ var router = express();
 var server = http.createServer(router);
 var io = socketio.listen(server);
 
-//router.use(express.static(path.resolve(__dirname, 'client')));
-
-router.post('/post', function (req, res) {
-  var response = req.body;
-  console.log('Response was ', response.rate);
-
-  res.send('successful!');
-});
+router.use(express.static(path.resolve(__dirname, 'client')));
 
 var messages = [];
 var sockets = [];
-var led = new five.Led.RGB([11,10,9]);
+
+router.post('/', function (req, res) {
+  var response = req.body;
+  console.log('Response was ', response.rate);
+  
+  var led = new five.Led(13);
+  led.blink();
+  res.send('successful!');
+});
+
 
 io.on('connection', function (socket) {
     messages.forEach(function (data) {
