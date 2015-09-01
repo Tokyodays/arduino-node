@@ -28,7 +28,7 @@ router.post('/get', function (req, res) {
 
     res.send('LED request successful!');
   });
-  
+
 var messages = [];
 var sockets = [];
 
