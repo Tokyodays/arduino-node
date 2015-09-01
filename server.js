@@ -10,6 +10,9 @@ var async = require('async');
 var socketio = require('socket.io');
 var express = require('express');
 
+var five = require("johnny-five");
+var board = new five.Board();
+
 //
 // ## SimpleServer `SimpleServer(obj)`
 //
@@ -24,12 +27,12 @@ router.use(express.static(path.resolve(__dirname, 'client')));
 
 var messages = [];
 var sockets = [];
+var led = new five.Led(13);
 
 router.post('/', function (req, res) {
   var response = req.body;
   console.log('Response was ', response.rate);
-        broadcast('message', response.rate);
-        messages.push(data);
+  led.blink();
   res.send('successful!');
 });
 
