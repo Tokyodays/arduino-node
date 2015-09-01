@@ -55,7 +55,7 @@ io.on('connection', function (socket) {
           name: name,
           text: text
         };
-
+console.log(name);
         broadcast('message', data);
         messages.push(data);
       });
