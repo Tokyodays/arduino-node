@@ -22,15 +22,17 @@ var io = socketio.listen(server);
 
 router.use(express.static(path.resolve(__dirname, 'client')));
 
+var messages = [];
+var sockets = [];
+
 router.post('/', function (req, res) {
   var response = req.body;
   console.log('Response was ', response.rate);
-
+        broadcast('message', response.rate);
+        messages.push(data);
   res.send('successful!');
 });
 
-var messages = [];
-var sockets = [];
 
 io.on('connection', function (socket) {
     messages.forEach(function (data) {
@@ -55,7 +57,7 @@ io.on('connection', function (socket) {
           name: name,
           text: text
         };
-console.log(name);
+
         broadcast('message', data);
         messages.push(data);
       });
