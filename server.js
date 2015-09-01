@@ -22,7 +22,7 @@ var io = socketio.listen(server);
 
 router.use(express.static(path.resolve(__dirname, 'client')));
 
-router.get('/post', function (req, res) {
+router.post('/', function (req, res) {
   var response = req.body;
   console.log('Response was ', response.rate);
 
