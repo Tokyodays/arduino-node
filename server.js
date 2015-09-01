@@ -10,7 +10,7 @@ var async = require('async');
 var socketio = require('socket.io');
 var express = require('express');
 
-var five = require("johnny-five");
+var five = require('johnny-five');
 var board = new five.Board();
 
 //
@@ -32,8 +32,8 @@ router.post('/', function (req, res) {
   var response = req.body;
   console.log('Response was ', response.rate);
   
-    var led = new five.Led(13);
-    led.blink();
+  var led = new five.Led(13);
+  led.blink();
   res.send('successful!');
 });
 
