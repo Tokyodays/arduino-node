@@ -10,7 +10,7 @@ var async = require('async');
 var socketio = require('socket.io');
 var express = require('express');
 
-var five = require('johnny-five');
+var five = require("johnny-five");
 var board = new five.Board();
 
 //
@@ -23,20 +23,18 @@ var router = express();
 var server = http.createServer(router);
 var io = socketio.listen(server);
 
-router.use(express.static(path.resolve(__dirname, 'client')));
+//router.use(express.static(path.resolve(__dirname, 'client')));
+
+router.post('/post', function (req, res) {
+  var response = req.body;
+  console.log('Response was ', response.rate);
+
+  res.send('successful!');
+});
 
 var messages = [];
 var sockets = [];
-/*
-router.post('/', function (req, res) {
-  var response = req.body;
-  console.log('Response was ', response.rate);
-  
-  var led = new five.Led(13);
-  led.blink();
-  res.send('successful!');
-});
-*/
+var led = new five.Led.RGB([11,10,9]);
 
 io.on('connection', function (socket) {
     messages.forEach(function (data) {
