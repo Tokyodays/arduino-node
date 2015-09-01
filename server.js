@@ -27,7 +27,7 @@ router.use(express.static(path.resolve(__dirname, 'client')));
 
 var messages = [];
 var sockets = [];
-
+/*
 router.post('/', function (req, res) {
   var response = req.body;
   console.log('Response was ', response.rate);
@@ -36,7 +36,7 @@ router.post('/', function (req, res) {
   led.blink();
   res.send('successful!');
 });
-
+*/
 
 io.on('connection', function (socket) {
     messages.forEach(function (data) {
