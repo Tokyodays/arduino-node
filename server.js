@@ -21,6 +21,14 @@ var server = http.createServer(router);
 var io = socketio.listen(server);
 
 router.use(express.static(path.resolve(__dirname, 'client')));
+
+router.post('/get', function (req, res) {
+    var response = req.body;
+    console.log('Response was ', response.Rate);
+
+    res.send('LED request successful!');
+  });
+  
 var messages = [];
 var sockets = [];
 

@@ -8,6 +8,8 @@
   "dependencies": {
     "async": "~0.2.8",
     "express": "~3.2.4",
+    "johnny-five": "^0.8.89",
+    "npm": "^2.14.1",
     "socket.io": "~0.9.14"
   }
 }
