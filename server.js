@@ -10,7 +10,7 @@ var async = require('async');
 var socketio = require('socket.io');
 var express = require('express');
 
-//var five = require('johnny-five');
+var five = require('johnny-five');
 //var board = new five.Board();
 
 //
