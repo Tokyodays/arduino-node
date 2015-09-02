@@ -32,8 +32,8 @@ router.post('/', function (req, res) {
   var response = req.body;
   console.log('Response was ', response.rate);
   
-  var led = new five.Led(13);
-  led.blink();
+  //var led = new five.Led(13);
+  //led.blink();
   
   res.send('successful!');
 });
